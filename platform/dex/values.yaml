@@ -1,0 +1,49 @@
+dex:
+  config:
+    issuer: https://dex.romelben.com
+    storage:
+      type: kubernetes
+      config:
+        inCluster: true
+    oauth2:
+      skipApprovalScreen: true
+    connectors:
+      - type: oidc
+        id: kanidm
+        name: Kanidm
+        config:
+          clientID: $KANIDM_CLIENT_ID
+          clientSecret: $KANIDM_CLIENT_SECRET
+          redirectURI: https://dex.romelben.com/callback
+          issuer: https://auth.romelben.com/oauth2/openid/dex
+          # TODO https://github.com/dexidp/dex/pull/3188
+          # enablePKCE: true
+          scopes:
+            - openid
+            - profile
+            - email
+            - groups
+    staticClients:
+      - id: grafana-sso
+        name: Grafana
+        redirectURIs:
+          - 'https://grafana.romelben.com/login/generic_oauth'
+        secretEnv: GRAFANA_SSO_CLIENT_SECRET
+  envFrom:
+    - secretRef:
+        name: dex-secrets
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      hajimari.io/enable: 'false'
+    hosts:
+      - host: &host dex.romelben.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: dex-tls-certificate
+        hosts:
+          - *host
