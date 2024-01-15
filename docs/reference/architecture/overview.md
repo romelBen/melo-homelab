@@ -88,7 +88,6 @@ flowchart TD
   subgraph apps
     jellyfin[Jellyfin]
     matrix[Matrix]
-    paperless[Paperless]
     seafile[Seafile]
   end
 
