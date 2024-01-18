@@ -26,10 +26,6 @@ apps = [
         'url': 'https://argocd.romelben.com/applications/root'
     },
     {
-        'name': 'tekton',
-        'url': 'https://tekton.romelben.com/#/namespaces/tekton-pipelines/pipelineruns/homelab?pipelineTask=external&step=plan'
-    },
-    {
         'name': 'matrix',
         'url': 'https://chat.romelben.com/#/room/#random:matrix.romelben.com'
     },

@@ -11,6 +11,11 @@
     - key: client_secret
       length: 32
       special: false
+- name: dex.gitea
+  data:
+    - key: client_secret
+      length: 32
+      special: false
 
 # Registry
 - name: registry.admin
@@ -18,13 +23,6 @@
     - key: password
       length: 32
       special: true
-
-# Tekton
-- name: tekton.webhook
-  data:
-    - key: token
-      length: 32
-      special: false
 
 # Woodpecker
 - name: woodpecker.agent

@@ -14,9 +14,9 @@ import sys
 from rich.prompt import Confirm, Prompt
 
 upstream_config = {
-    "seed_repo": "https://github.com/melo-romelben/homelab",
+    "seed_repo": "https://github.com/melo-homelab",
     "domain": "romelben.com",
-    "timezone": "America/Chicago",
+    "timezone": "Asia/Ho_Chi_Minh",
     "terraform_workspace": "romelben",
     "loadbalancer_ip_range": "192.168.1.224/27",
 }

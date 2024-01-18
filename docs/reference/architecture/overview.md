@@ -54,7 +54,7 @@ From now on, ArgoCD will do the rest:
 ```mermaid
 flowchart TD
   subgraph metal[./metal]
-    pxe[PXE Server] -.-> linux[Debian Server] --> k3s
+    pxe[PXE Server] -.-> linux[Fedora Server] --> k3s
   end
 
   subgraph bootstrap[./bootstrap]
@@ -81,13 +81,14 @@ flowchart TD
 
   subgraph platform
     Gitea
-    Tekton
+    Woodpecker
     Grafana
   end
 
   subgraph apps
     jellyfin[Jellyfin]
     matrix[Matrix]
+    paperless[Paperless]
     seafile[Seafile]
   end
 

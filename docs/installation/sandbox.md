@@ -20,7 +20,7 @@ Install the following packages:
 Clone the repository and checkout the development branch:
 
 ```sh
-git clone https://github.com/melo-romelben/homelab
+git clone https://github.com/melo-homelab
 git checkout dev
 ```
 

@@ -115,7 +115,7 @@ Move to Nix shell with a Docker wrapper, in case Nix is not available (see commi
 
 **Context**
 
-[Original proposal from @Bourne-ID](https://github.com/melo-romelben/homelab/issues/70):
+[Original proposal from @Bourne-ID](https://github.com/melo-homelab/issues/70):
 
 > **Issue statement**
 >
@@ -170,12 +170,25 @@ Migrate documentation from mdBook to MkDocs (see commit `cd41343`).
 
 **Context**
 
+I've tried several distributions, and each has advantages and disadvantages.
+Fedora has a good (enough) balance between stability and new features.
+
 Alternatives considered:
+
+- Fedora CoreOS (moved to Rocky in `7667254`):
+    - Pros: automatic and atomic upgrade, immutable, quick installation
+    - Cons: hard to run Ansible on (Python is not included)
+- CentOS/Rocky Linux (moved to Fedora in `022b816`):
+    - Pros: relatively stable (however we did encounter a breaking change [#63](https://github.com/melo-homelab/issues/63), still not sure why)
+    - Cons: kernel and packages are too old
 - Debian: couldn't get it to work with PXE boot and Rocky Linux was sufficient so I didn't push any further
+- Cluster API (previous attempt in ` a8e4a85`, I hope to get this to work someday):
+    - Pros: control bare metal machines via Kubernetes API, open the possibility for autoscaling and autohealing
+    - Cons: doesn't support simple WoL and shutdown via SSH (or similar)
 
 **Decision**
 
-Use Debian since it's a good OS.
+Use Fedora as the base OS.
 
 **Consequences**
 

@@ -1,0 +1,18 @@
+paperless:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: &host paperless.romelben.com
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: paperless-tls-certificate
+          hosts:
+            - *host
+  postgresql:
+    enabled: true
