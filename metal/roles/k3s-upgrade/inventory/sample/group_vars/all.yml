@@ -5,7 +5,7 @@ ansible_user: ansibleuser
 systemd_dir: /etc/systemd/system
 
 # Set your timezone
-system_timezone: "Your/Timezone"
+system_timezone: "America/Chicago"
 
 # interface which will be used for flannel
 flannel_iface: "eth0"
