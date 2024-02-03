@@ -59,26 +59,3 @@ git-hooks:
 	pre-commit install
 
 default: boot cluster
-
-~/.ssh/id_ed25519:
-	ssh-keygen -t ed25519 -P '' -f "$@"
-
-# boot: ~/.ssh/id_ed25519
-# 	ansible-playbook \
-# 		--inventory inventories/${env}.yml= \
-# 		boot.yml
-
-setup-k3s-cluster:
-	cd ~/melo-homelab/metal/roles/k3s; \
-	ansible all -i inventory/melo-homelab-cluster/hosts.ini -m ping; \
-	ansible-playbook site.yml -i inventory/melo-homelab-cluster/hosts.ini;
-
-remove-k3s-cluster:
-	cd ~/melo-homelab/metal/roles/k3s; \
-	ansible all -i inventory/melo-homelab-cluster/hosts.ini -m ping; \
-	ansible-playbook reset.yml -i inventory/melo-homelab-cluster/hosts.ini;
-
-reboot-k3s-cluster:
-	cd ~/melo-homelab/metal/roles/k3s; \
-	ansible all -i inventory/melo-homelab-cluster/hosts.ini -m ping; \
-	ansible-playbook reboot.yml -i inventory/melo-homelab-cluster/hosts.ini;
