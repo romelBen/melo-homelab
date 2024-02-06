@@ -45,7 +45,7 @@ Ciphers +{{ sshd_enabled_ciphers }}
 {% endif %}
 {% if sshd_disabled_ciphers is defined and sshd_disabled_ciphers|length %}
 {% if 
-(ansible_distribution == 'Debian' and ansible_distribution_version is version('11', '>='))
+(ansible_distribution == 'Debian' and ansible_distribution_version is version('12', '>='))
 or (ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('18', '>='))
 or (ansible_distribution == 'CentOS' and ansible_distribution_version is version('8', '>='))
 %}

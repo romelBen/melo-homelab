@@ -22,10 +22,9 @@ galaxy_info:
         - 7
     - name: Debian
       versions:
-        - Jessie
-        - Stretch
         - Buster
         - Bullseye
+        - Bookworm
     - name: Fedora
       versions:
         - 30

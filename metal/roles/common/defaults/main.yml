@@ -2,7 +2,6 @@
 common_stable_os:
   - CentOS 7
   - CentOS 8
-  - Debian 9
   - Debian 10
   - Debian 11
   - Debian 12
@@ -71,7 +70,7 @@ common_dns_options: []
 # - "rotate"
 
 # Timezone
-common_timezone: "Europe/Berlin"
+common_timezone: "America/Chicago"
 
 # Scripting
 common_scripting_path: /opt/control/scripts

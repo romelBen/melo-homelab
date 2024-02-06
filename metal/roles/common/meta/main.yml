@@ -1,7 +1,6 @@
 ---
 galaxy_info:
   role_name: common
-  author: thorian93
   description: Common System Management
   license: "license (MIT)"
 

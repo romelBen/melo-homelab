@@ -23,9 +23,9 @@ galaxy_info:
         - 8
     - name: Debian
       versions:
-        - Stretch
         - Buster
         - Bullseye
+        - Bookworm
     - name: Fedora
       versions:
         - 31

@@ -20,6 +20,7 @@
       {
         devShells.default = mkShell {
           packages = [
+            sshpass
             ansible
             ansible-lint
             bmake
