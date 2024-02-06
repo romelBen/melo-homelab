@@ -2,7 +2,7 @@
 .PHONY: *
 .EXPORT_ALL_VARIABLES:
 
-KUBECONFIG = $(shell pwd)/metal/kubeconfig.yaml
+KUBECONFIG = $(shell pwd)/metal/roles/k3s/kubeconfig.yaml
 KUBE_CONFIG_PATH = $(KUBECONFIG)
 
 default: metal bootstrap external smoke-test post-install clean
@@ -57,5 +57,3 @@ docs:
 
 git-hooks:
 	pre-commit install
-
-default: boot cluster

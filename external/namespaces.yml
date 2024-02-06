@@ -11,4 +11,3 @@
         - cloudflared
         - external-dns
         - k8up-operator
-        - zerotier

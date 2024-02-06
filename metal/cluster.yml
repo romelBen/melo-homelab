@@ -9,10 +9,10 @@
   hosts: metal
   become: true
   roles:
-      - k3s-debian
+      - k3s
       - upgrade
 
-- name: Install Kubernetes addons
-  hosts: localhost
-  roles:
-    - cilium
+# - name: Install Kubernetes addons
+#   hosts: localhost
+#   roles:
+#     - cilium

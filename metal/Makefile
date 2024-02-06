@@ -19,5 +19,3 @@ cluster:
 console:
 	ansible-console \
 		--inventory inventories/${env}.yml
-
-		

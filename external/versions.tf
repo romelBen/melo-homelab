@@ -1,12 +1,12 @@
 terraform {
-  required_version = "~> 1.6.0"
+  required_version =  "1.7.2"
 
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "romelben"
+    organization = "melo"
 
     workspaces {
-      name = "homelab-external"
+      name = "melo-homelab-external"
     }
   }
 
@@ -34,6 +34,7 @@ provider "cloudflare" {
 }
 
 provider "kubernetes" {
+    config_path = "/home/romelben/melo-homelab/metal/roles/k3s/kubeconfig.yaml"
   # Use KUBE_CONFIG_PATH environment variables
   # Or in cluster service account
 }
