@@ -1,26 +1,14 @@
 # Ansible Role: Common
-
-This role manages several parts of a Linux system which are not worth their own role.
-## Here be Dragons!
-
 When managing DNS resolution with this role be aware of the following: On Ubuntu this role will remove the symlink on /etc/resolv.conf if it exists and replace it with a static file. The symlink originates in the `systemd-resolved` daemon. Managing that daemon is at least currently out of scope for this role. I know this not a beautiful solution but it works for me. If you know how to handle this better feel free to contact me or create a PR.
 
 ## Known issues
-
 - Fedora 30: The dropping support for Python 2 in Fedora causes problems for Ansible. This can be fixed by setting the `ansible_python_interpreter` variable to the appropriate Python 3 binary.
 - **opensuse 15.2 and 42.2**: A missing dependency does not allow installation of a dependent tool. A workaround is in place but does not work properly.
 
 ## Requirements
-
 No special requirements; note that this role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
 
-    - hosts: foobar
-      roles:
-        - role: thorian93.common
-          become: yes
-
 ## Role Variables
-
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     common_configure_crontabs: false
@@ -137,22 +125,9 @@ If the combination of distribution and major version number do not match the tar
 Kudos to [HarryHarcourt](https://github.com/HarryHarcourt) for this idea!
 
 ## Example Playbook
-
     ---
     - name: "Run role."
       hosts: all
       become: yes
       roles:
-        - ansible-role-common
-
-## Contributing
-
-Please feel free to open issues if you find any bugs, problems or if you see room for improvement. Also feel free to contact me anytime if you want to ask or discuss something.
-
-## Disclaimer
-
-This role is provided AS IS and I can and will not guarantee that the role works as intended, nor can I be accountable for any damage or misconfiguration done by this role. Study the role thoroughly before using it.
-
-## License
-
-MIT
+        - common

@@ -1,9 +1,7 @@
 # Ansible Role: Upgrade
-
 This role performs upgrades on Debian/Ubuntu, RHEL/CentOS, Fedora and Suse servers.
 
 ## Features
-
 - Reboot detection and automatic reboot
 - Service restart detection and automatic service restarts
 - Upgrade reporting
@@ -11,7 +9,6 @@ This role performs upgrades on Debian/Ubuntu, RHEL/CentOS, Fedora and Suse serve
   - via Telegram
 
 ## Gotchas
-
 The reboot and service restart checks for APT are implemented via [needrestart](https://github.com/liske/needrestart). For Fedora this is implemented through the dnf plugin [needs-restarting](https://dnf-plugins-core.readthedocs.io/en/latest/needs_restarting.html).
 For RHEL/CentOS it is implemented through the [needs-restarting](https://dnf-plugins-core.readthedocs.io/en/latest/needs_restarting.html) tool.
 
@@ -20,7 +17,6 @@ The role uses the output or return codes respectively to decide what actions to 
 Neither of these methods are perfect but it works reasonably good. You might want to look through the role before using it though.
 
 ## Known issues
-
 - Debian 11: Without setting `ansible_python_interpreter=/usr/bin/python3` explicitly, the `apt` module will try to install `python-apt` on the fly, which fails. See [this issue](https://github.com/ansible/ansible/issues/69053) for more details.
 - CentOS 8: Reboot detection does not work as there is a flag missing for the dnf needs-restarting plugin. No reboot will be performed at any time.
 - Fedora 32 and earlier: Service restart detection does not work as there is a flag missing for the dnf needs-restarting plugin. No service restarts will be performed at any time.
@@ -28,7 +24,6 @@ Neither of these methods are perfect but it works reasonably good. You might wan
 - **opensuse 15 and 42**: The service restart detection uses a 'brute force' approach, as the output of `zypper ps -s` is a pain in the bum to parse. So for now these OS will simply reboot if any services need to be restarted.
 
 ## Requirements
-
 When using the reporting via Telegram feature: 
 
     collections:
@@ -37,20 +32,12 @@ When using the reporting via Telegram feature:
 
 Note that this role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
 
-    - hosts: foobar
-      roles:
-        - role: thorian93.upgrade
-          become: yes
-
 Also this role only **checks if the system is available at port 22** after a reboot. If you need further checks or validation you need to take care of that yourself.
 
 ## Role Variables
-
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-
 ### Basic Variables
-
     upgrade_packages_on_hold: []
 
 Set packages which you don't want to upgrade automatically on hold before upgrading.
@@ -79,7 +66,6 @@ Enable automatic service restarts. This causes the role to restart services whic
 Blacklist services that should not or cannot be restarted. The default list ist based on and expanded per experience. Feel free to report services that need to be added here.
 
 ### Reporting Variables
-
     upgrade_reporting_enable: false
 
 Enable the reporting function of this role to output the installed updates and optionally write them to file.
@@ -93,7 +79,6 @@ Define where the reports should be placed. Default is your current working direc
 Clean up the report files used to send reports. Might be useful for debugging to keep them.
 
 ### Telegram Reporting Variables
-
     upgrade_reporting_telegram_enable: false
 
 Enable reporting via Telegram. **You need to configure the following two variables with your credentials to actually send messages via Telegram!** See [the module documentation](https://docs.ansible.com/ansible/latest/collections/community/general/telegram_module.html) for details.
@@ -107,7 +92,6 @@ Your Telegram Bot Token.
 Your Telegram Chat ID.
 
 ### Mail Reporting Variables
-
     upgrade_reporting_mail_enable: false
 
 Enable reporting via Mail.
@@ -143,11 +127,9 @@ If the mail server needs authentication, set a username and password here. **If 
 If you want to send one email per play set this to true. If you rather send one mail per host set it to `false`.
 
 ## Dependencies
-
 None.
 
 ## OS Compatibility
-
 This role ensures that it is not used against unsupported or untested operating systems by checking, if the right distribution name and major version number are present in a dedicated variable named like `<role-name>_stable_os`. You can find the variable in the role's default variable file at `defaults/main.yml`:
 
     role_stable_os:
@@ -159,22 +141,9 @@ This role ensures that it is not used against unsupported or untested operating 
 If the combination of distribution and major version number do not match the target system, the role will fail. To allow the role to work add the distribution name and major version name to that variable and you are good to go. But please test the new combination first!
 
 ## Example Playbook
-
     ---
     - name: "Run role."
       hosts: all
       become: yes
       roles:
-        - ansible-role-upgrade
-
-## Contributing
-
-Please feel free to open issues if you find any bugs, problems or if you see room for improvement. Also feel free to contact me anytime if you want to ask or discuss something.
-
-## Disclaimer
-
-This role is provided AS IS and I can and will not guarantee that the role works as intended, nor can I be accountable for any damage or misconfiguration done by this role. Study the role thoroughly before using it.
-
-## License
-
-MIT
+        - upgrade

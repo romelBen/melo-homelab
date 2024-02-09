@@ -1,9 +1,7 @@
 ---
 galaxy_info:
   role_name: ntp
-  author: thorian93
   description: NTP Network Time Daemon
-  license: "license (MIT)"
 
   min_ansible_version: 2.9
 

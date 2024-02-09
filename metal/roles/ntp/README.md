@@ -1,22 +1,10 @@
 # Ansible Role: NTP
-
 This role installs and configures NTP on RHEL/CentOS, Debian/Ubuntu, Fedora and Suse servers.
 
-[![Ansible Role: NTP](https://img.shields.io/ansible/role/55142?style=flat-square)](https://galaxy.ansible.com/thorian93/ntp)
-[![Ansible Role: NTP](https://img.shields.io/ansible/quality/55142?style=flat-square)](https://galaxy.ansible.com/thorian93/ntp)
-[![Ansible Role: NTP](https://img.shields.io/ansible/role/d/55142?style=flat-square)](https://galaxy.ansible.com/thorian93/ntp)
-
 ## Requirements
-
 No special requirements; note that this role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
 
-    - hosts: foobar
-      roles:
-        - role: thorian93.ntp
-          become: yes
-
 ## Role Variables
-
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     ntp_driftfile: /var/lib/ntp/drift
@@ -70,16 +58,4 @@ Kudos to [HarryHarcourt](https://github.com/HarryHarcourt) for this idea!
       hosts: all
       become: yes
       roles:
-        - ansible-role-ntp
-
-## Contributing
-
-Please feel free to open issues if you find any bugs, problems or if you see room for improvement. Also feel free to contact me anytime if you want to ask or discuss something.
-
-## Disclaimer
-
-This role is provided AS IS and I can and will not guarantee that the role works as intended, nor can I be accountable for any damage or misconfiguration done by this role. Study the role thoroughly before using it.
-
-## License
-
-MIT
+        - ntp
