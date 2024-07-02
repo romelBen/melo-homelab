@@ -12,6 +12,7 @@ Below is a list of external resources and why we need them (also see some [alter
 | Terraform Cloud | Workspace       | Terraform state backend                                                                                                     |
 | Cloudflare      | DNS             | DNS and [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) for certificates                 |
 | Cloudflare      | Tunnel          | Public services to the internet without port forwarding                                                                     |
+| ntfy            | Topic           | External notification service to receive alerts                                                                             |
 <!-- | Minio           | Bucket     | Onsite backup                                                                                               | -->
 <!-- | AWS             | S3 Glacier | Offsite backup                                                                                              | -->
 
@@ -42,12 +43,24 @@ If you decide to use a [different Terraform backend](https://www.terraform.io/la
 <!-- This API token will affect the below accounts and zones, along with their respective permissions -->
 
 <!-- └── Khue Doan - Argo Tunnel:Edit, Account Settings:Read -->
-<!--     └── romelben.com - Zone:Read, DNS:Edit -->
+<!--     └── khuedoan.com - Zone:Read, DNS:Edit -->
 
 <!-- Client IP Address Filtering -->
 
 <!-- └── Is in - 117.xxx.xxx.xxx, 2402:xxx:xxx:xxx:xxx:xxx:xxx:xxx -->
 <!-- ``` -->
+
+<!-- ### Create Minio keys -->
+
+<!-- TODO: skip this for now -->
+
+<!-- ### Create AWS API key -->
+
+<!-- TODO: skip this for now -->
+
+### ntfy
+
+- Choose a topic name like <https://ntfy.sh/random_topic_name_here_a8sd7fkjxlkcjasdw33813> (treat it like you password)
 
 ## Alternatives
 
@@ -60,9 +73,10 @@ To avoid vendor lock-in, each external provider must have an equivalent alternat
     - [Alternate DNS setup](../../how-to-guides/alternate-dns-setup.md)
 - Cloudflare Tunnel:
     - Use port forwarding if it's available
-    - Create a small VPS in the cloud and utilize Wireguard and HAProxy to route traffic via it
+    - Create a small VPS in the cloud and utilize Wireguard to route traffic via it
     - Access everything via VPN
     - See also [awesome tunneling](https://github.com/anderspitman/awesome-tunneling)
-- [Netmaker](https://www.netmaker.org) (there's no hosted version, you'll need to host your own server)
-    - Wireguard server (requires port forwarding)
+- ntfy:
+    - [Self-host your own ntfy server](https://docs.ntfy.sh/install)
+    - Any other [integration supported by Grafana Alerting](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/manage-contact-points/integrations/#list-of-supported-integrations)
 <!-- - Minio and S3 Glacier: any S3 compatible object storage, such as Backblaze B2, Minio... -->

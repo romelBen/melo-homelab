@@ -5,7 +5,7 @@ app-template:
         main:
           image:
             repository: ghcr.io/gethomepage/homepage
-            tag: v0.8.4
+            tag: v0.8.8
   service:
     main:
       ports:
@@ -19,7 +19,7 @@ app-template:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - host: &host home.romelben.com
+        - host: &host home.khuedoan.com
           paths:
             - path: /
               pathType: Prefix
@@ -59,77 +59,81 @@ app-template:
               provider: google
               target: _blank
         services.yaml: |
-          - Communication:
+          - Popular:
             - Matrix:
-                href: https://chat.romelben.com
+                href: https://chat.khuedoan.com
                 description: Chat client
                 icon: element.svg
-          - Media:
             - Jellyfin:
-                href: https://jellyfin.romelben.com
+                href: https://jellyfin.khuedoan.com
                 description: Media system (movies, music, etc.)
                 icon: jellyfin.svg
             - Jellyseerr:
-                href: https://jellyseerr.romelben.com
+                href: https://jellyseerr.khuedoan.com
                 description: Request media
                 icon: jellyseerr.svg
+            - Paperless:
+                href: https://paperless.khuedoan.com
+                description: Document management system
+                icon: paperless.svg
+          - Management:
             - Transmission:
-                href: https://transmission.romelben.com
+                href: https://transmission.khuedoan.com
                 description: Bittorrent client
                 icon: transmission.svg
             - Prowlarr:
-                href: https://prowlarr.romelben.com
+                href: https://prowlarr.khuedoan.com
                 description: Indexer manager
                 icon: prowlarr.svg
             - Radarr:
-                href: https://radarr.romelben.com
+                href: https://radarr.khuedoan.com
                 description: Movie manager
                 icon: radarr.svg
             - Sonarr:
-                href: https://sonarr.romelben.com
+                href: https://sonarr.khuedoan.com
                 description: TV show manager
                 icon: sonarr.svg
+            - Kanidm:
+                href: https://auth.khuedoan.com
+                description: Identity management
+                icon: https://auth.khuedoan.com/pkg/img/logo-square.svg
           - Development:
             - Gitea:
-                href: https://git.romelben.com
+                href: https://git.khuedoan.com
                 description: Git forge
                 icon: gitea.svg
             - Woodpecker:
-                href: https://ci.romelben.com
+                href: https://ci.khuedoan.com
                 description: Continuous integration
                 icon: woodpecker-ci.svg
             - ArgoCD:
-                href: https://argocd.romelben.com
+                href: https://argocd.khuedoan.com
                 description: Continuous deployment
                 icon: argocd.svg
             - Registry:
-                href: https://registry.romelben.com
+                href: https://registry.khuedoan.com
                 description: Container registry
                 icon: docker.svg
             - Grafana:
-                href: https://grafana.romelben.com
+                href: https://grafana.khuedoan.com
                 description: Observability dashboards
                 icon: grafana.svg
           - Utilities:
-            - Kanidm:
-                href: https://auth.romelben.com
-                description: Identity management
-                icon: https://auth.romelben.com/pkg/img/logo-square.svg
             - Excalidraw:
-                href: https://draw.romelben.com
+                href: https://draw.khuedoan.com
                 description: Virtual whiteboard
                 icon: excalidraw.svg
             - Speedtest:
-                href: https://speedtest.romelben.com
+                href: https://speedtest.khuedoan.com
                 description: Internal network speed test
                 icon: openspeedtest.png
         bookmarks.yaml: |
           - Homelab:
             - Documentation:
-              - href: https://homelab.romelben.com
+              - href: https://homelab.khuedoan.com
                 icon: google-docs.svg
             - Public homelab repository:
-              - href: https://github.com/melo-homelab
+              - href: https://github.com/khuedoan/homelab
                 icon: github.svg
           - Managed services:
             - Cloudflare:
