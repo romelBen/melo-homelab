@@ -101,7 +101,7 @@
             - "/tmp/k3s/cilium-linux-{{ cli_arch }}.tar.gz"
             - "/tmp/k3s/cilium-linux-{{ cli_arch }}.tar.gz.sha256sum"
 
-    - name: Wait for connectivity to kube VIP
+    - name: Wait for connectivity to kube-vip
       ansible.builtin.command: ping -c 1 {{ apiserver_endpoint }}
       register: ping_result
       until: ping_result.rc == 0
@@ -110,7 +110,7 @@
       ignore_errors: true
       changed_when: false
 
-    - name: Fail if kube VIP not reachable
+    - name: Fail if kube-vip not reachable
       ansible.builtin.fail:
         msg: "API endpoint {{ apiserver_endpoint }} is not reachable"
       when: ping_result.rc != 0

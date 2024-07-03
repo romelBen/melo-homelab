@@ -28,8 +28,6 @@
         namespace: "{{ testing_namespace }}"
         kubeconfig: "{{ kubecfg_path }}"
       vars: &load_balancer_metadata
-        metallb_ip: status.loadBalancer.ingress[0].ip
-        metallb_port: spec.ports[0].port
       register: nginx_services
 
     - name: Assert that the nginx welcome page is available

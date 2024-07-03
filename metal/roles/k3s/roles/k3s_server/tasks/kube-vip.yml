@@ -17,7 +17,7 @@
     mode: 0644
   when: ansible_hostname == hostvars[groups[group_name_master | default('master')][0]]['ansible_hostname']
 
-- name: Copy kubevip configMap manifest to first master
+- name: Copy kube-vip configMap manifest to first master
   template:
     src: "kubevip.yaml.j2"
     dest: "/var/lib/rancher/k3s/server/manifests/kubevip.yaml"
