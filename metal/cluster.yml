@@ -5,14 +5,9 @@
     - ntp
     - upgrade
 
-- name: Setup K3s + kube-vip + etcd
+- name: Setup K3s + apt-upgrade + etcd
   hosts: metal
   become: true
   roles:
       - k3s
       - upgrade
-
-# - name: Install Kubernetes addons
-#   hosts: localhost
-#   roles:
-#     - cilium
