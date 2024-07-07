@@ -1,7 +1,7 @@
 .POSIX:
 
 env ?= prod
-export KUBECONFIG = $(shell pwd)/metal/roles/k3s/kubeconfig.yaml
+export KUBECONFIG=$(pwd)/metal/roles/k3s/kubeconfig.yaml
 
 # default: boot cluster
 default: cluster

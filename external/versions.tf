@@ -34,7 +34,8 @@ provider "cloudflare" {
 }
 
 provider "kubernetes" {
-    config_path = "/home/romelben/melo-homelab/metal/roles/k3s/kubeconfig.yaml"
+    config_path = "/home/romelben/personal_projects/metal/roles/k3s/kubeconfig.yaml"
+    
   # Use KUBE_CONFIG_PATH environment variables
   # Or in cluster service account
 }

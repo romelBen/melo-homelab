@@ -16,15 +16,15 @@ repositories:
     owner: ops
     private: false
     migrate:
-      source: https://github.com/khuedoan/homelab
+      source: https://github.com/romelben/homelab
       mirror: false
   - name: blog
-    owner: khuedoan
+    owner: romelben
     migrate:
-      source: https://github.com/khuedoan/blog
+      source: https://github.com/romelben/blog
       mirror: true
   - name: backstage
-    owner: khuedoan
+    owner: romelben
     migrate:
-      source: https://github.com/khuedoan/backstage
+      source: https://github.com/romelben/backstage
       mirror: true
