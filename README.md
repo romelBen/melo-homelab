@@ -2,7 +2,8 @@
 > [!IMPORTANT]
 > This project is still a work in-progress. I am still testing out the correct process for services and will udpate when
 > ready. This warning will be remove once it's fully operational. Thanks for your cooperation.
-Melo-homelab is a homelab which I have updated that includes IaC and GitOps processes using the latest technologies that is being experimented.
+
+Melo is suppose to be my name backwards without an "R" or *Merlo* which is a place connected to the enchanting presense of blackbirds has nothing to do with homelabs. So back to what this project is about! This repository is includes IaC and GitOps processes using the latest technologies.
 
 ## 🔧 Hardware
 | Device                                                                                 | Description              | Quantity | CPU     | RAM      | Architecture | Operating System                      |  Notes |
