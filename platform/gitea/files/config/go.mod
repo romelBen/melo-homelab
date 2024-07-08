@@ -1,4 +1,4 @@
-module git.romelben.com/romelben/homelab/gitea/config
+module git.romelben.net/romelben/homelab/gitea/config
 
 go 1.19
 

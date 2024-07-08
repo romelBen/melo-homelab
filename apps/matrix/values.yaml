@@ -4,10 +4,10 @@ elementweb:
     className: nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: "homelab-tunnel.romelben.com"
+      external-dns.alpha.kubernetes.io/target: "homelab-tunnel.romelben.net"
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
     hosts:
-      - host: &frontend_host chat.romelben.com
+      - host: &frontend_host chat.romelben.net
         paths:
           - path: /
             pathType: Prefix
@@ -17,22 +17,22 @@ elementweb:
           - *frontend_host
   config:
     default:
-      base_url: https://matrix.romelben.com
-      server_name: romelben.com
+      base_url: https://matrix.romelben.net
+      server_name: romelben.net
 
 dendrite:
   dendrite_config:
     global:
-      server_name: matrix.romelben.com
+      server_name: matrix.romelben.net
   ingress:
     enabled: true
     className: nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-    hostName: matrix.romelben.com
+    hostName: matrix.romelben.net
     tls:
       - hosts:
-          - matrix.romelben.com
+          - matrix.romelben.net
         secretName: matrix-tls-certificate
   postgresql:
     enabled: true

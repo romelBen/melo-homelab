@@ -5,7 +5,7 @@ Even though we self-host Gitea, you may still want to use GitHub as a backup and
 Add both push URLs (replace my repositories with yours):
 
 ```sh
-git remote set-url --add --push origin git@git.romelben.com:ops/homelab
+git remote set-url --add --push origin git@git.romelben.net:ops/homelab
 git remote set-url --add --push origin git@github.com:romelben/homelab
 ```
 

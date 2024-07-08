@@ -1,4 +1,4 @@
-module git.romelben.com/ops/homelab
+module git.romelben.net/ops/homelab
 
 go 1.21
 

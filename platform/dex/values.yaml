@@ -1,6 +1,6 @@
 dex:
   config:
-    issuer: https://dex.romelben.com
+    issuer: https://dex.romelben.net
     storage:
       type: kubernetes
       config:
@@ -14,8 +14,8 @@ dex:
         config:
           clientID: $KANIDM_CLIENT_ID
           clientSecret: $KANIDM_CLIENT_SECRET
-          redirectURI: https://dex.romelben.com/callback
-          issuer: https://auth.romelben.com/oauth2/openid/dex
+          redirectURI: https://dex.romelben.net/callback
+          issuer: https://auth.romelben.net/oauth2/openid/dex
           # TODO https://github.com/dexidp/dex/pull/3188
           # enablePKCE: true
           scopes:
@@ -27,12 +27,12 @@ dex:
       - id: grafana-sso
         name: Grafana
         redirectURIs:
-          - 'https://grafana.romelben.com/login/generic_oauth'
+          - 'https://grafana.romelben.net/login/generic_oauth'
         secretEnv: GRAFANA_SSO_CLIENT_SECRET
       - id: gitea
         name: Gitea
         redirectURIs:
-          - 'https://git.romelben.com/user/oauth2/Dex/callback'
+          - 'https://git.romelben.net/user/oauth2/Dex/callback'
         secretEnv: GITEA_CLIENT_SECRET
   envFrom:
     - secretRef:
@@ -43,7 +43,7 @@ dex:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-      - host: &host dex.romelben.com
+      - host: &host dex.romelben.net
         paths:
           - path: /
             pathType: ImplementationSpecific

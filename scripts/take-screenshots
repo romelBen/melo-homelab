@@ -15,23 +15,23 @@ from selenium import webdriver
 apps = [
     {
         'name': 'home',
-        'url': 'https://home.romelben.com'
+        'url': 'https://home.romelben.net'
     },
     {
         'name': 'gitea',
-        'url': 'https://git.romelben.com/ops/homelab'
+        'url': 'https://git.romelben.net/ops/homelab'
     },
     {
         'name': 'argocd',
-        'url': 'https://argocd.romelben.com/applications/root'
+        'url': 'https://argocd.romelben.net/applications/root'
     },
     {
         'name': 'matrix',
-        'url': 'https://chat.romelben.com/#/room/#random:matrix.romelben.com'
+        'url': 'https://chat.romelben.net/#/room/#random:matrix.romelben.net'
     },
     {
         'name': 'grafana',
-        'url': 'https://grafana.romelben.com/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster'  # wtf is this ID
+        'url': 'https://grafana.romelben.net/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster'  # wtf is this ID
     },
 ]
 

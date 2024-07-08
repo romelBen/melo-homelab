@@ -1,4 +1,4 @@
-module git.romelben.com/romelben/homelab/platform/secret-generator
+module git.romelben.net/romelben/homelab/platform/secret-generator
 
 go 1.19
 
