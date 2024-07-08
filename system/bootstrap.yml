@@ -21,16 +21,26 @@
       kubernetes.core.helm_template:
         chart_ref: ./argocd
         include_crds: true
-        release_name: argocd
         release_namespace: argocd
-        dependency_update: true
         values_files:
           - "argocd/{{ (first_install.resources | length == 0) | ternary('values-seed.yaml', 'values.yaml') }}"
       register: argocd_manifests
 
+    - name: Convert argocd_manifests.stdout to string
+      set_fact:
+        argocd_manifests_string: "{{ argocd_manifests.stdout }}"
+
+    ### This is for debugging purposes, not needed.
+    # - name: Debug output of argocd_manifests_string
+    #   debug:
+    #     var: argocd_manifests_string | to_nice_json
+
     - name: Apply ArgoCD manifests
       kubernetes.core.k8s:
-        resource_definition: "{{ argocd_manifests.stdout }}"
-        apply: true
+        resource_definition: "{{ argocd_manifests_string }}"
         server_side_apply:
           field_manager: argocd-controller
+      register: apply_result
+      retries: 5          # Number of retries
+      delay: 10           # Delay between retries in seconds
+      until: apply_result is succeeded  # Condition to end retries

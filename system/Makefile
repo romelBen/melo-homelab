@@ -1,6 +1,6 @@
 .POSIX:
 
-export KUBECONFIG = $(pwd)/metal/roles/k3s/kubeconfig.yaml
+export KUBECONFIG=../metal/roles/k3s/kubeconfig.yaml
 
 .PHONY: bootstrap
 bootstrap:

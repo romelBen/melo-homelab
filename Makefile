@@ -2,7 +2,7 @@
 .PHONY: *
 .EXPORT_ALL_VARIABLES:
 
-KUBECONFIG = $(pwd)/metal/roles/k3s/kubeconfig.yaml
+KUBECONFIG = /metal/roles/k3s/kubeconfig.yaml
 KUBE_CONFIG_PATH = $(KUBECONFIG)
 
 default: metal system external smoke-test post-install clean
