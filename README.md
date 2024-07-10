@@ -37,8 +37,14 @@ make
 
 3. And presto!
 
-## Acknowledgements
+## Future Enhancements To Add
+- [ ] Look into implementing Talos rather than Debian. (Talos has been highly debated if it should be used at all. Talos is API driven and removes `ssh` or access to the nodes themselves.)
+- [ ] Give a rundown of each resource that I am utilizing and including it into the README.md
+- [ ] I need to find a better way of organizing the deployment. I feel the Makefile's in each directory can be confusing for others.
+
+### Acknowledgements
 A great inspiration for this project is from [Khue's homelab](https://github.com/romelben/homelab). Majority of the changes will be from his project, and my changes will deal with implementing my Raspberry Pis as well as small changes.
 
 In setting up k3s, I took inspiration from Techno Tim's repository [k3s-anisble](https://github.com/techno-tim/k3s-ansible) by pruning the unnecessarry code and modifying it to my needs.
 
+A shoutout to [thorian93](https://github.com/thorian93) where I used a couple of Ansible roles to use in my home project.
