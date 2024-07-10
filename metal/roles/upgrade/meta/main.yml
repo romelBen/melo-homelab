@@ -15,34 +15,12 @@ galaxy_info:
     - operating
 
   platforms:
-    - name: EL
-      versions:
-        - 7
-        - 8
     - name: Debian
       versions:
-        - Buster
         - Bullseye
         - Bookworm
     - name: Fedora
       versions:
-        - 31
-        - 32
-        - 33
-        - 34
-        - 35
-        - 36
-        - 37
-    - name: opensuse
-      versions:
-        - 15.2
-        - 42.2
-    - name: SLES
-      versions:
-        - 11
-        - 12
-    - name: Ubuntu
-      versions:
-        - Xenial
-        - Bionic
-        - Focal
+        - 38
+        - 39
+        - 40

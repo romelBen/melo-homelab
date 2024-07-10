@@ -1,5 +1,5 @@
 # Ansible Role: Upgrade
-This role performs upgrades on Debian/Ubuntu, RHEL/CentOS, Fedora and Suse servers.
+This role performs upgrades on Debian and Fedora servers
 
 ## Features
 - Reboot detection and automatic reboot
@@ -10,7 +10,6 @@ This role performs upgrades on Debian/Ubuntu, RHEL/CentOS, Fedora and Suse serve
 
 ## Gotchas
 The reboot and service restart checks for APT are implemented via [needrestart](https://github.com/liske/needrestart). For Fedora this is implemented through the dnf plugin [needs-restarting](https://dnf-plugins-core.readthedocs.io/en/latest/needs_restarting.html).
-For RHEL/CentOS it is implemented through the [needs-restarting](https://dnf-plugins-core.readthedocs.io/en/latest/needs_restarting.html) tool.
 
 The role uses the output or return codes respectively to decide what actions to take. You can configure the behavior through the variables below.
 
@@ -18,10 +17,6 @@ Neither of these methods are perfect but it works reasonably good. You might wan
 
 ## Known issues
 - Debian 11: Without setting `ansible_python_interpreter=/usr/bin/python3` explicitly, the `apt` module will try to install `python-apt` on the fly, which fails. See [this issue](https://github.com/ansible/ansible/issues/69053) for more details.
-- CentOS 8: Reboot detection does not work as there is a flag missing for the dnf needs-restarting plugin. No reboot will be performed at any time.
-- Fedora 32 and earlier: Service restart detection does not work as there is a flag missing for the dnf needs-restarting plugin. No service restarts will be performed at any time.
-- **opensuse 15 and 42**: A missing dependency does not allow installation of a dependent tool. A workaround is in place. Also the upgrade process seems unstable. I will list these distributions as stable regarding below mentioned OS compatibility check anyway as currently the role does not seem to break stuff, but please be careful! Also feel free to give me a hint, if you know how to fix this stuff.
-- **opensuse 15 and 42**: The service restart detection uses a 'brute force' approach, as the output of `zypper ps -s` is a pain in the bum to parse. So for now these OS will simply reboot if any services need to be restarted.
 
 ## Requirements
 When using the reporting via Telegram feature: 

@@ -1,5 +1,0 @@
----
-ntp_prerequisites:
-  - ntp
-
-ntp_name: ntpd

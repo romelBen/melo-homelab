@@ -1,7 +1,7 @@
 .POSIX:
 
-KUBECONFIG = ../metal/roles/k3s/kubeconfig.yaml
-# KUBE_CONFIG_PATH = $(KUBECONFIG)
+export KUBECONFIG = ../metal/roles/k3s/kubeconfig.yaml
+export KUBE_CONFIG_PATH = $(KUBECONFIG)
 
 default: apply
 

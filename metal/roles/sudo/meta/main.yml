@@ -11,29 +11,12 @@ galaxy_info:
     - sudo
 
   platforms:
-    - name: EL
-      versions:
-        - 7
-        - 8
     - name: Debian
       versions:
-        - Buster
         - Bullseye
         - Bookworm
     - name: Fedora
       versions:
-        - 30
-        - 31
-        - 32
-        - 33
-        - 34
-        - 35
-    - name: opensuse
-      versions:
-        - 15.2
-        - 42.2
-    - name: Ubuntu
-      versions:
-        - Xenial
-        - Bionic
-        - Focal
+        - 38
+        - 39
+        - 40

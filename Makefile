@@ -7,6 +7,12 @@ KUBE_CONFIG_PATH = $(KUBECONFIG)
 
 default: metal system external smoke-test post-install clean
 
+k3s-setup:
+	make -C ./metal/roles/k3s
+
+k3s-reset:
+	make -C ./metal/roles/k3s
+
 configure:
 	./scripts/configure
 	git status

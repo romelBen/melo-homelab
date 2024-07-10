@@ -15,23 +15,22 @@ Melo is suppose to be my name mix together without an "R", or Melo can be unders
 ## Debian Version History
 https://en.wikipedia.org/wiki/Debian_version_history
 
-## Installation of Setup
+## Installation Setup of Services
 I have separated the installation process in 2 areas:
-- Setup k3s of master and nodes on Raspberry Pi's and Dell Optiplex's respectively.
-- Setup all services and do an update, security, and small changes for full capability.
+* Setup k3s on Raspberry Pi's (being my `master` nodes) and Dell Optiplex's (being my `nodes`).
+* Setup the necessary settings such as `apt-update`/`apt-upgrade`, `ntp`, `ssh`, `sudo`, `pxe_server` (unnecessarry if this was done manually), and security settings to have it secure.
 
-1. To first setup k3s, you will need to be in folder `metal/roles/k3s`:
+1. To interact with setting/removing k3s, be in the root directory and input the following commands:
 ```shell
-cd metal/roles/k3s
 
 # To install k3s on nodes:
-ansible-playbook site.yml -i inventory/melo-homelab/hosts.ini -k
+make k3s-setup
 
 # To uninstall k3s on nodes (if an issue or hiccup happens to start from the beginning):
-ansible-playbook reset.yml -i inventory/melo-homelab/hosts.ini -k
+make k3s-reset
 ```
 
-2. Once k3s has been installed successfully, you will need to be in the root directory and run one simple command to have all services fully deployed onto your nodes:
+2. Once k3s has been installed successfully, you will need to run one simple command to have all services fully deployed onto your nodes:
 ```shell
 make
 ```
@@ -39,6 +38,7 @@ make
 3. And presto!
 
 ## Acknowledgements
-A great inspiration for this project is from [Khue's homelab](https://github.com/romelben/homelab). Majority of the changes will be from that project, and my changes will deal with implementing my Raspberry Pis.
+A great inspiration for this project is from [Khue's homelab](https://github.com/romelben/homelab). Majority of the changes will be from his project, and my changes will deal with implementing my Raspberry Pis as well as small changes.
 
-In setting up k3s, I took inspiration from Techno Tims repository [k3s-anisble](https://github.com/techno-tim/k3s-ansible).
+In setting up k3s, I took inspiration from Techno Tim's repository [k3s-anisble](https://github.com/techno-tim/k3s-ansible) by pruning the unnecessarry code and modifying it to my needs.
+
