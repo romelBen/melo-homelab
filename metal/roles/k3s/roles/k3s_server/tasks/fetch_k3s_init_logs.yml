@@ -1,7 +1,6 @@
 ---
 # Download logs of k3s-init.service from the nodes to localhost.
 # Note that log_destination must be set.
-
 - name: Fetch k3s-init.service logs
   ansible.builtin.command:
     cmd: journalctl --all --unit=k3s-init.service

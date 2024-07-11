@@ -3,7 +3,6 @@
   hosts: all
 
   pre_tasks:
-
     - name: "Update APT cache."
       ansible.builtin.apt:
         update_cache: true
@@ -25,9 +24,7 @@
         owner: root
         group: root
       when: ansible_distribution == 'Ubuntu'
-
   tasks:
-
     - name: "Run role."
       ansible.builtin.include_role:
         name: common

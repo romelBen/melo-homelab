@@ -1,5 +1,4 @@
 ---
-
 - name: Create directory /etc/rancher/k3s
   file:
     path: "/etc/{{ item }}"
