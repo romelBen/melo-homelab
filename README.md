@@ -5,6 +5,11 @@
 
 Melo is suppose to be my name mix together without an "R", or Melo can be understood with *Merlo* which is a place connected to the enchanting presense of blackbirds has nothing to do with homelabs. So back to what this project is about! This repository includes IaC and GitOps processes using the latest technologies.
 
+## Tools I Use
+- [mise](https://github.com/jdx/mise)(I use this tool as a package manager for different tools such as `terraform`, `python`, `golang`, etc. Think of this tool as a wrapper for [asdf](https://github.com/asdf-vm/asdf).)
+- [k9s](https://github.com/derailed/k9s) (k9s is used to interact with k3s. Very easy to use if you know vim.)
+- [nix](https://github.com/NixOS/nix)(nix is considered a package manager but I see this as an addon to Docker to make it better. nix does take some time in learning but once mastered, it's a great tool to manage your versioning of projects.)
+
 ## 🔧 Hardware
 | Device                                                                                 | Description              | Quantity | CPU     | RAM      | Architecture | Operating System                      |  Notes |
 | -------------------------------------------------------------------------------------- | ------------------------ | -------- | ------- | -------- | ------------ | ------------------------------------- | ----- |
@@ -30,12 +35,24 @@ make k3s-setup
 make k3s-reset
 ```
 
-2. Once k3s has been installed successfully, you will need to run one simple command to have all services fully deployed onto your nodes:
+2. Once installed, you will have k3s setup, kube-vip as the load balancer, and Cilium as the service-mesh!  Before you move forward, it's always best to pull the k3s kube config file to connect. Do the following:
+```shell
+# Pull kube config file from one of your master nodes
+scp ansibleuser@192.168.30.38:~/.kube/config ~/.kube/config
+
+# Then export the vars onto your local environment
+export KUBECONFIG= ~/.kube/config
+export KUBE_CONFIG_PATH= ~/.kube/config
+```
+
+3. Once k3s has been installed successfully, you will need to run one simple command to have all services fully deployed onto your nodes:
 ```shell
 make
 ```
 
-3. And presto!
+## Troubleshooting
+The Ansible script is not perfect, especially with setting up K3s, kube-vip, and Cilium being added. 
+- Cilium will specifically struggle in connecting after 30 attempts to reconnect using the Ansible script. What you will need to do is enter into your cluster and restart the services that are failing. This will be kube-vip and Cilium. (I will need to look into yaml files to restart on failure.)
 
 ## Future Enhancements To Add
 - [ ] Look into implementing Talos rather than Debian. (Talos has been highly debated if it should be used at all. Talos is API driven and removes `ssh` or access to the nodes themselves.)

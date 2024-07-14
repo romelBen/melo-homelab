@@ -1,8 +1,5 @@
 .POSIX:
 
-export KUBECONFIG = ../metal/roles/k3s/kubeconfig.yaml
-export KUBE_CONFIG_PATH = $(KUBECONFIG)
-
 default: apply
 
 ~/.terraform.d/credentials.tfrc.json:

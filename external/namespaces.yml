@@ -10,7 +10,6 @@
         - cert-manager
         - cloudflared
         - external-dns
-        - global-secrets
+        # - global-secrets
         - k8up-operator
         - monitoring-system
-        - gitea

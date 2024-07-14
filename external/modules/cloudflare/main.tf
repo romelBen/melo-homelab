@@ -25,25 +25,25 @@ resource "cloudflare_record" "tunnel" {
   ttl     = 1 # Auto
 }
 
-resource "kubernetes_secret" "cloudflared_credentials" {
-  metadata {
-    name      = "cloudflared-credentials"
-    namespace = "cloudflared"
+# resource "kubernetes_secret" "cloudflared_credentials" {
+#   metadata {
+#     name      = "cloudflared-credentials"
+#     namespace = "cloudflared"
 
-    annotations = {
-      "app.kubernetes.io/managed-by" = "Terraform"
-    }
-  }
+#     annotations = {
+#       "app.kubernetes.io/managed-by" = "Terraform"
+#     }
+#   }
 
-  data = {
-    "credentials.json" = jsonencode({
-      AccountTag   = var.cloudflare_account_id
-      TunnelName   = cloudflare_tunnel.homelab.name
-      TunnelID     = cloudflare_tunnel.homelab.id
-      TunnelSecret = base64encode(random_password.tunnel_secret.result)
-    })
-  }
-}
+#   data = {
+#     "credentials.json" = jsonencode({
+#       AccountTag   = var.cloudflare_account_id
+#       TunnelName   = cloudflare_tunnel.homelab.name
+#       TunnelID     = cloudflare_tunnel.homelab.id
+#       TunnelSecret = base64encode(random_password.tunnel_secret.result)
+#     })
+#   }
+# }
 
 resource "cloudflare_api_token" "external_dns" {
   name = "homelab_external_dns"
@@ -59,20 +59,20 @@ resource "cloudflare_api_token" "external_dns" {
   }
 }
 
-resource "kubernetes_secret" "external_dns_token" {
-  metadata {
-    name      = "cloudflare-api-token"
-    namespace = "external-dns"
+# resource "kubernetes_secret" "external_dns_token" {
+#   metadata {
+#     name      = "cloudflare-api-token"
+#     namespace = "external-dns"
 
-    annotations = {
-      "app.kubernetes.io/managed-by" = "Terraform"
-    }
-  }
+#     annotations = {
+#       "app.kubernetes.io/managed-by" = "Terraform"
+#     }
+#   }
 
-  data = {
-    "value" = cloudflare_api_token.external_dns.value
-  }
-}
+#   data = {
+#     "value" = cloudflare_api_token.external_dns.value
+#   }
+# }
 
 resource "cloudflare_api_token" "cert_manager" {
   name = "homelab_cert_manager"
@@ -88,17 +88,17 @@ resource "cloudflare_api_token" "cert_manager" {
   }
 }
 
-resource "kubernetes_secret" "cert_manager_token" {
-  metadata {
-    name      = "cloudflare-api-token"
-    namespace = "cert-manager"
+# resource "kubernetes_secret" "cert_manager_token" {
+#   metadata {
+#     name      = "cloudflare-api-token"
+#     namespace = "cert-manager"
 
-    annotations = {
-      "app.kubernetes.io/managed-by" = "Terraform"
-    }
-  }
+#     annotations = {
+#       "app.kubernetes.io/managed-by" = "Terraform"
+#     }
+#   }
 
-  data = {
-    "api-token" = cloudflare_api_token.cert_manager.value
-  }
-}
+#   data = {
+#     "api-token" = cloudflare_api_token.cert_manager.value
+#   }
+# }
